@@ -4,6 +4,8 @@
 
 ## 🚀 Возможности
 - Модификаторы
+  - `MVVM`
+  - `Custom Fonts`
   - `TextModifier`
 - Константы
   - `AppConstants`
