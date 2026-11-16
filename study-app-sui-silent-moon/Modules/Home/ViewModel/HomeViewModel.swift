@@ -34,4 +34,10 @@ final class HomeViewModel {
         let loaded = (try? await network.fetchCardsRecommend()) ?? nil
         self.cardsRecommend = loaded
     }
+    
+    func loadAll() async {
+        await loadCardsTop()
+        await loadBanners()
+        await loadCardsRecommend()
+    }
 }

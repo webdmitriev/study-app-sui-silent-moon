@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    let vm = HomeViewModel()
+    @State private var vm = HomeViewModel()
     
     var body: some View {
         ScrollView {
@@ -28,6 +28,9 @@ struct HomeView: View {
                 
                 Spacer(minLength: 400) // для большего скролла чтобы тестировать GeometryReader
             }
+        }
+        .refreshable {
+            await vm.loadAll()
         }
         .task {
             await vm.loadCardsTop()
