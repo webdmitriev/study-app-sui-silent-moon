@@ -1,12 +1,13 @@
 # Study App — SwiftUI Silent Moon
 
-Учебный проект: добавление кастомных шрифтов.
+Учебный проект: добавление custom fonts.
 
 ## 🚀 Возможности
-- Модификаторы
-  - `MVVM`
-  - `Custom Fonts`
-  - `TextModifier`
+- MVVM
+- Custom Fonts
+- Extensions
+  - `Text` (headerTitle, headerSubTitle, gridCardTitle, gridCardSubTitle)
+  - `Button` (AppButtonStyle, app)
 - Константы
   - `AppConstants`
 - Работа с цветом
