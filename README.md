@@ -5,6 +5,7 @@
 ## 🚀 Возможности
 - MVVM
 - Custom Fonts
+- LazyVGrid
 - Extensions
   - `Text` (headerTitle, headerSubTitle, gridCardTitle, gridCardSubTitle)
   - `Button` (AppButtonStyle, app)
