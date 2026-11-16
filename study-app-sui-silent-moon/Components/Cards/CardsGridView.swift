@@ -21,8 +21,8 @@ struct CardsGridView: View {
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 18) {
-            ForEach(cards, id: \.id) { card in
-                CardGridView(card: card)
+            ForEach(Array(cards.enumerated()), id: \.element.id) { idx, card in
+                CardGridView(card: card, styleCard: idx % 2 == 0 ? .darken : .light)
             }
         }
         .padding(.horizontal, AppConstants.Layout.offsetPage)
@@ -31,6 +31,7 @@ struct CardsGridView: View {
 
 struct CardGridView: View {
     var card: CardGrid
+    var styleCard: CardGridStyle
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -41,18 +42,19 @@ struct CardGridView: View {
             VStack(spacing: 30) {
                 VStack(spacing: 6) {
                     Text(card.title)
-                        .gridCardTitle(textColor: .lightPeach)
+                        .gridCardTitle(textColor: styleCard == .darken ? .lightPeach : .blueDarkGray)
 
                     Text("\(card.subTitle)".uppercased())
-                        .gridCardSubTitle(textColor: .lightPeach)
+                        .gridCardSubTitle(textColor: styleCard == .darken ? .lightPeach : .blueDarkGray)
                 }
                 
                 HStack {
                     Text(card.timer)
-                        .gridCardSubTitle(textColor: .lightPeach)
+                        .gridCardSubTitle(textColor: styleCard == .darken ? .lightPeach : .blueDarkGray)
                     
                     Button("Start".uppercased()) {  }
-                        .buttonStyle(.app(textColor: .blueDarkGray))
+                        .buttonStyle(.app(background: styleCard == .darken ? .pearlGray : .blueDarkGray,
+                                          textColor: styleCard == .darken ? .blueDarkGray : .pearlGray))
                 }
             }
             .padding(14)
@@ -68,4 +70,9 @@ struct CardGrid: Identifiable {
     var title: String
     var subTitle: String
     var timer: String
+}
+
+enum CardGridStyle {
+    case darken
+    case light
 }
