@@ -10,7 +10,11 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ScrollView {
-            HeaderView()
+            VStack(spacing: 30) {
+                HeaderView()
+                
+                CardsGridView()
+            }
         }
     }
 }
