@@ -11,4 +11,6 @@ protocol NetworkingProtocol: Sendable {
     func fetchTopCards() async throws -> [CardGrid]
     
     func fetchBanners() async throws -> [Banner]
+    
+    func fetchCardsRecommend() async throws -> CardRecommend
 }

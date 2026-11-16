@@ -18,6 +18,7 @@ final class HomeViewModel {
     var cardsTop: [CardGrid] = []
     var banners: [Banner] = []
     var banner: Banner?
+    var cardsRecommend: CardRecommend?
     
     func loadCardsTop() async {
         self.cardsTop = (try? await network.fetchTopCards()) ?? []
@@ -27,5 +28,10 @@ final class HomeViewModel {
         let loaded = (try? await network.fetchBanners()) ?? []
         self.banners = loaded
         self.banner = loaded.randomElement()
+    }
+    
+    func loadCardsRecommend() async {
+        let loaded = (try? await network.fetchCardsRecommend()) ?? nil
+        self.cardsRecommend = loaded
     }
 }

@@ -19,6 +19,11 @@ final class MockNetworkManager: NetworkingProtocol {
         try await Task.sleep(for: delay)
         return Self.mockBanners
     }
+    
+    func fetchCardsRecommend() async throws -> CardRecommend {
+        try await Task.sleep(for: delay)
+        return Self.mockCardsRecommend
+    }
 }
 
 extension MockNetworkManager {
@@ -33,4 +38,12 @@ extension MockNetworkManager {
         Banner(image: "banner-01", title: "Daily Thought", subTitle: "MEDITATION", timer: "3-10 MIN", videoLink: "/"),
         Banner(image: "banner-01", title: "Hard Dancing", subTitle: "Music", timer: "24-28 MIN", videoLink: "/")
     ]
+}
+
+extension MockNetworkManager {
+    static let mockCardsRecommend: CardRecommend = CardRecommend(title: "Recomended for you", cardsRecommend: [
+        CardsRecommend(image: "recommend-01", title: "Focus", subTitle: "Meditation", timer: "3-10 min"),
+        CardsRecommend(image: "recommend-02", title: "Happyness", subTitle: "Music", timer: "12-24 min"),
+        CardsRecommend(image: "recommend-01", title: "Hard", subTitle: "Motivation", timer: "8-16 min"),
+    ])
 }

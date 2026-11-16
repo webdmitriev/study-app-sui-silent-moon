@@ -52,4 +52,24 @@ extension Text {
             .crimsonText(name: .bold, size: 12)
             .foregroundStyle(.pearlGray)
     }
+    
+    func recommendTitle() -> some View {
+        self
+            .font(.system(size: 24, weight: .bold))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundStyle(.blueDarkGray)
+    }
+    
+    func cardRecommendTitle() -> some View {
+        self
+            .crimsonText(name: .bold, size: 18)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundStyle(.blueDarkGray)
+    }
+    
+    func cardRecommendSubTitle() -> some View {
+        self
+            .crimsonText(name: .regular, size: 12)
+            .foregroundStyle(.blueGray)
+    }
 }

@@ -21,11 +21,16 @@ struct HomeView: View {
                 if let banner = vm.banner {
                     BannerView(banner: banner)
                 }
+                
+                if let cardsRecommend = vm.cardsRecommend {
+                    CardRecommendView(cards: cardsRecommend)
+                }
             }
         }
         .task {
             await vm.loadCardsTop()
             await vm.loadBanners()
+            await vm.loadCardsRecommend()
         }
     }
 }
