@@ -14,7 +14,7 @@ extension Text {
     
     func headerTitle() -> some View {
         self
-            .crimsonText(name: .bold, size: 28)
+            .crimsonText(name: .bold, size: 24)
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundStyle(.blueDarkGray)
     }
