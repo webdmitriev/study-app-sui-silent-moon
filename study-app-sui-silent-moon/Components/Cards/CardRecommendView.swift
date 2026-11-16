@@ -14,6 +14,7 @@ struct CardRecommendView: View {
         VStack(spacing: 10) {
             Text(cards.title)
                 .recommendTitle()
+                .padding(.horizontal, AppConstants.Layout.offsetPage)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 18) {
@@ -44,11 +45,12 @@ struct CardRecommendView: View {
                                 }
                             }
                         }
+                        .frame(width: 160)
                     }
                 }
+                .padding(.horizontal, AppConstants.Layout.offsetPage)
             }
         }
-        .padding(.horizontal, AppConstants.Layout.offsetPage)
     }
 }
 

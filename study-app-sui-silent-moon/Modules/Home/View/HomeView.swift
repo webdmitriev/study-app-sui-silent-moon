@@ -25,6 +25,8 @@ struct HomeView: View {
                 if let cardsRecommend = vm.cardsRecommend {
                     CardRecommendView(cards: cardsRecommend)
                 }
+                
+                Spacer(minLength: 400) // для большего скролла чтобы тестировать GeometryReader
             }
         }
         .task {
