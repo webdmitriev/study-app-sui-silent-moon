@@ -11,6 +11,9 @@
   - `Button` (AppButtonStyle, app)
 - Константы
   - `AppConstants`
+- Network
+  - `NetworkingProtocol`
+  - `MockNetworkManager`
 - Работа с цветом
   - `extension Color(hex:)`
 
