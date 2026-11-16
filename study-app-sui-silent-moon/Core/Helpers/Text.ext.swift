@@ -11,4 +11,18 @@ extension Text {
     func crimsonText(name: CrimsonText = .regular, size: CGFloat = 16) -> some View {
         self.font(.custom(name.rawValue, size: size))
     }
+    
+    func headerTitle() -> some View {
+        self
+            .crimsonText(name: .bold, size: 28)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundStyle(.blueDarkGray)
+    }
+    
+    func headerSubTitle() -> some View {
+        self
+            .crimsonText(name: .regular, size: 20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundStyle(.blueGray)
+    }
 }

@@ -5,4 +5,12 @@
 //  Created by Олег Дмитриев on 15.11.2026.
 //
 
-import Foundation
+import SwiftUI
+
+struct HomeView: View {
+    var body: some View {
+        ScrollView {
+            HeaderView()
+        }
+    }
+}
