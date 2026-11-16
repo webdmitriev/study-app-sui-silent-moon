@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    
+    private var lengthHeight: CGFloat {
+        sizeClass == .regular ? 2 : 8
+    }
+    
     var body: some View {
         VStack(spacing: 40) {
             Image("logotype")
@@ -23,6 +29,7 @@ struct HeaderView: View {
                     .headerSubTitle()
             }
         }
+        .padding(.top, lengthHeight)
         .padding(.horizontal, AppConstants.Layout.offsetPage)
     }
 }

@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct CardsGridView: View {
-    let columns: [GridItem] = [
-        GridItem(spacing: 18),
-        GridItem(spacing: 18)
-    ]
+    @Environment(\.horizontalSizeClass) private var sizeClass
+
+    private let spacing: CGFloat = 18
+
+    private var columns: [GridItem] {
+        let count = sizeClass == .regular ? 3 : 2
+        return Array(repeating: GridItem(.flexible(), spacing: spacing), count: count)
+    }
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 18) {
