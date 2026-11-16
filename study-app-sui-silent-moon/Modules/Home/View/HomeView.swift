@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    let vm = HomeViewModel()
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 30) {
                 HeaderView()
                 
-                CardsGridView()
+                CardsGridView(cards: vm.cardsTop)
             }
+        }
+        .task {
+            await vm.loadCardsTop()
         }
     }
 }

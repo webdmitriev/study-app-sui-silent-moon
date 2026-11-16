@@ -16,13 +16,13 @@ struct CardsGridView: View {
         let count = sizeClass == .regular ? 3 : 2
         return Array(repeating: GridItem(.flexible(), spacing: spacing), count: count)
     }
+    
+    var cards: [CardGrid] = []
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 18) {
-            ForEach(0..<5) { item in
-                CardGridView(image: "image-01", title: "Basics", subTitle: "Course", timer: "3-10 min") {
-                    print("tap")
-                }
+            ForEach(cards, id: \.id) { card in
+                CardGridView(card: card)
             }
         }
         .padding(.horizontal, AppConstants.Layout.offsetPage)
@@ -30,36 +30,29 @@ struct CardsGridView: View {
 }
 
 struct CardGridView: View {
-    var image: String
-    var title: String
-    var subTitle: String
-    var timer: String
-    var action: (() -> Void)? = nil
+    var card: CardGrid
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image(image)
+            Image(card.image)
                 .resizable()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             VStack(spacing: 30) {
                 VStack(spacing: 6) {
-                    Text(title)
+                    Text(card.title)
                         .gridCardTitle(textColor: .lightPeach)
 
-                    Text("\(subTitle)".uppercased())
+                    Text("\(card.subTitle)".uppercased())
                         .gridCardSubTitle(textColor: .lightPeach)
                 }
                 
                 HStack {
-                    Text(timer)
+                    Text(card.timer)
                         .gridCardSubTitle(textColor: .lightPeach)
                     
-                    if let action {
-                        Button("Start".uppercased(), action: action)
-                            .buttonStyle(.app(textColor: .blueDarkGray))
-                    }
-
+                    Button("Start".uppercased()) {  }
+                        .buttonStyle(.app(textColor: .blueDarkGray))
                 }
             }
             .padding(14)
@@ -67,4 +60,12 @@ struct CardGridView: View {
         .frame(height: 210)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.Layout.brsDefault))
     }
+}
+
+struct CardGrid: Identifiable {
+    var id: String = UUID().uuidString
+    var image: String
+    var title: String
+    var subTitle: String
+    var timer: String
 }
