@@ -9,4 +9,6 @@ import Foundation
 
 protocol NetworkingProtocol: Sendable {
     func fetchTopCards() async throws -> [CardGrid]
+    
+    func fetchBanners() async throws -> [Banner]
 }

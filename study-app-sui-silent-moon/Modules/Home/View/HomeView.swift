@@ -17,10 +17,15 @@ struct HomeView: View {
                 HeaderView()
                 
                 CardsGridView(cards: vm.cardsTop)
+                
+                if let banner = vm.banner {
+                    BannerView(banner: banner)
+                }
             }
         }
         .task {
             await vm.loadCardsTop()
+            await vm.loadBanners()
         }
     }
 }

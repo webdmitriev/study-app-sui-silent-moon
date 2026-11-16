@@ -39,4 +39,17 @@ extension Text {
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundStyle(textColor)
     }
+    
+    func bannerTitle() -> some View {
+        self
+            .crimsonText(name: .bold, size: 18)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundStyle(.white)
+    }
+    
+    func bannerSubTitle() -> some View {
+        self
+            .crimsonText(name: .bold, size: 12)
+            .foregroundStyle(.pearlGray)
+    }
 }
